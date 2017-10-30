@@ -94,6 +94,10 @@ function render(userClicked = false) {
 		.then(posts => {
 			state.lastResult.posts = posts;
 			state.lastResult.url = originalUrl;
+			if (!posts.length && params.exactMatch) {
+				DOM.opts.exactCheckbox.prop('checked', false);
+				render();
+			}
 			displayPosts(posts, originalUrl);
 			return posts.other;
 		})
