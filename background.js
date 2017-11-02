@@ -72,7 +72,10 @@ function searchNonExact(tabId, url, retryCount = 0) {
 		return;
 	}
 	findOnReddit(url, true, false)
-		.then(posts => setResultsBadge(tabId, `${posts.length}`))
+		.then(posts => {
+		  let badgeText = posts.length ? '#' + posts.length : posts.length;
+		  setResultsBadge(tabId, `${badgeText}`)
+		})
 		.catch(e => {
 			if (bgOpts.autorun.retryError) {
 				setTimeout(() => searchNonExact(tabId, url, retryCount + 1), BG_RETRY_INTERVAL);
