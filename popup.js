@@ -82,6 +82,8 @@ function render(userClicked = false) {
 	urlPromise.then(url => {
 		originalUrl = url;
 		updateUiBasedOnUrl(url, params);
+		url = "https://www.reddit.com/submit?url=" + url;
+		$('#submit-link').attr('href', url);
 	});
 	urlPromise
 		.then(url => {
@@ -284,4 +286,3 @@ function fetchDomHandles() {
 		}
 	};
 }
-
