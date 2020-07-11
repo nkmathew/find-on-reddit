@@ -12,7 +12,8 @@ let state = {
 	oldReddit: true
 };
 
-$(document).ready(init);
+// $(document).ready(init);
+$(window).load(init);
 
 function init() {
 	DOM = fetchDomHandles();
