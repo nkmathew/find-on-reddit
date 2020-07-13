@@ -52,7 +52,6 @@ function findOnReddit(url, useCache = true, exact = true) {
 	let query = encodeURIComponent(url);
 	let results = search(query, useCache, exact);
 	results.then(res => {
-		res = removeDuplicates(res);
 		cachePosts(query, res, exact)
 	}).catch(ignoreRejection);
 	return results;

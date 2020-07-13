@@ -93,10 +93,10 @@ function render(userClicked = false) {
 			isYt = isYoutubeUrl(url) && params.ytHandling;
 			exactMatch = params.exactMatch && !isYt;
 			let urlToSearch = processUrl(url, params.ignoreQs, isYt);
-
 			return findOnReddit(urlToSearch, useCache, exactMatch);
 		})
 		.then(posts => {
+			posts = removeDuplicates(posts);
 			state.lastResult.posts = posts;
 			state.lastResult.url = originalUrl;
 			if (!posts.length && params.exactMatch) {
