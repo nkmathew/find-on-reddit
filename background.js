@@ -2,6 +2,7 @@ const BADGE_COLORS = {
 	error: '#DD1616',
 	success: '#717171',
 	success1: 'black',
+	success2: '#006666',
 };
 let bgOpts;
 
@@ -108,7 +109,7 @@ function setErrorBadge(tabId) {
 }
 
 function setResultsBadge(tabId, text) {
-	return setBadge(tabId, text, BADGE_COLORS.success1);
+	return setBadge(tabId, text, BADGE_COLORS.success2);
 }
 
 function removeBadge(tabId) {
