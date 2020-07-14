@@ -4,6 +4,7 @@ body
   font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
   width: 600px;
   font-size: 13px;
+  min-height: 250px;
 }
 
 #main 
