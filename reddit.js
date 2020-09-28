@@ -29,6 +29,7 @@ function normalizeYoutube(url) {
 
 function removeDuplicates(posts) {
 	let seen = {};
+	posts = posts.sort((a, b) => b.data.num_comments - a.data.num_comments);
 	posts = posts.map(post => {
 		let url = normalizeYoutube(post.data.url);
 		let dupe = seen[url];
@@ -36,8 +37,7 @@ function removeDuplicates(posts) {
 		if (!dupe) {
 			return post;
 		}
-	}
-	);
+	});
 	posts = posts.filter(post => post);
 	posts = posts.map(post => {
 		if (seen[post.data.url] > 1) {

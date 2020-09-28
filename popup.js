@@ -44,7 +44,6 @@ function registerHandlers(opts) {
 			displayPosts(state.lastResult.posts, state.lastResult.url);
 		});
 	});
-
 	// open links in new tab - or not
 	$('body').on('click', 'a', function() {
 		let clickedUrl = $(this).attr('href');
@@ -57,7 +56,6 @@ function registerHandlers(opts) {
 			navigateTo(clickedUrl);
 		}
 	});
-
 	DOM.opts.ytCheckbox.change(function(e) { 
 		if (this.checked) {
 			setUiState('YT_VID');
@@ -69,8 +67,6 @@ function registerHandlers(opts) {
 	});
 	DOM.opts.exactCheckbox.change(() => render());
 	DOM.opts.qsCheckbox.change(() => render());
-
-
 	DOM.searchBtn.click(() => render(true));
 }
 
@@ -81,7 +77,6 @@ function render(userClicked = false) {
 	let useCache = !userClicked;
 	let originalUrl;
 	let isYt, exactMatch;
-
 	urlPromise.then(url => {
 		originalUrl = url;
 		updateUiBasedOnUrl(url, params);
