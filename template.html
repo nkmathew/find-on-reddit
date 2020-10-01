@@ -41,7 +41,10 @@
             <td class="col-md-8 title">
                 <span>
                   <a href="https://{{#if ../oldReddit}}old.{{else}}{{/if}}reddit.com{{data.permalink}}">
-                    <span class="post-title">{{data.title}}</span>
+                    <span class="post-title">
+                      <span class="duplicates">{{data.dupes}}</span>
+                      {{data.title}}
+                    </span>
                   </a>
                   <br/>
                   <a href="https://{{#if ../oldReddit}}old.{{else}}{{/if}}reddit.com{{data.permalink}}">

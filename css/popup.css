@@ -140,3 +140,10 @@ td.subreddit
 {
   white-space: pre;
 }
+
+.duplicates {
+  border-radius: 100%;
+  background-color: #3F51B5;
+  padding: 0px 3px 0px 3px;
+  font-weight: bold;
+}

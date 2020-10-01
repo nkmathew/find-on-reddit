@@ -29,20 +29,24 @@ function normalizeYoutube(url) {
 
 function removeDuplicates(posts) {
 	let seen = {};
+	let rawSeen = {};
 	posts = posts.sort((a, b) => b.data.num_comments - a.data.num_comments);
 	posts = posts.map(post => {
 		let url = normalizeYoutube(post.data.url);
 		let dupe = seen[url];
 		seen[url] = (seen[url] || 0) + 1;
+		rawSeen[post.data.url] = (rawSeen[post.data.url] || 0) + 1;
 		if (!dupe) {
 			return post;
 		}
 	});
 	posts = posts.filter(post => post);
 	posts = posts.map(post => {
-		if (seen[post.data.url] > 1) {
+		let dupes = rawSeen[post.data.url];
+		if (dupes > 1) {
 			post.data.permalink = post.data.permalink.replace('/comments/', '/duplicates/');
 		}
+		post.data.dupes = dupes;
 		return post;
 	});
 	return posts;
