@@ -4,6 +4,7 @@ body
   font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
   width: 600px;
   font-size: 13px;
+  min-height: 250px;
 }
 
 #main 
@@ -138,4 +139,11 @@ td.subreddit
 .pre
 {
   white-space: pre;
+}
+
+.duplicates {
+  border-radius: 100%;
+  background-color: #3F51B5;
+  padding: 0px 3px 0px 3px;
+  font-weight: bold;
 }

@@ -12,7 +12,8 @@ let state = {
 	oldReddit: true
 };
 
-$(document).ready(init);
+// $(document).ready(init);
+$(window).load(init);
 
 function init() {
 	DOM = fetchDomHandles();
@@ -43,7 +44,6 @@ function registerHandlers(opts) {
 			displayPosts(state.lastResult.posts, state.lastResult.url);
 		});
 	});
-
 	// open links in new tab - or not
 	$('body').on('click', 'a', function() {
 		let clickedUrl = $(this).attr('href');
@@ -56,7 +56,6 @@ function registerHandlers(opts) {
 			navigateTo(clickedUrl);
 		}
 	});
-
 	DOM.opts.ytCheckbox.change(function(e) { 
 		if (this.checked) {
 			setUiState('YT_VID');
@@ -68,8 +67,6 @@ function registerHandlers(opts) {
 	});
 	DOM.opts.exactCheckbox.change(() => render());
 	DOM.opts.qsCheckbox.change(() => render());
-
-
 	DOM.searchBtn.click(() => render(true));
 }
 
@@ -80,22 +77,27 @@ function render(userClicked = false) {
 	let useCache = !userClicked;
 	let originalUrl;
 	let isYt, exactMatch;
-
 	urlPromise.then(url => {
 		originalUrl = url;
 		updateUiBasedOnUrl(url, params);
+		url = "https://www.reddit.com/submit?url=" + url;
+		$('#submit-link').attr('href', url);
 	});
 	urlPromise
 		.then(url => {
 			isYt = isYoutubeUrl(url) && params.ytHandling;
 			exactMatch = params.exactMatch && !isYt;
 			let urlToSearch = processUrl(url, params.ignoreQs, isYt);
-
 			return findOnReddit(urlToSearch, useCache, exactMatch);
 		})
 		.then(posts => {
+			posts = removeDuplicates(posts);
 			state.lastResult.posts = posts;
 			state.lastResult.url = originalUrl;
+			if (!posts.length && params.exactMatch) {
+				DOM.opts.exactCheckbox.prop('checked', false);
+				render();
+			}
 			displayPosts(posts, originalUrl);
 			return posts.other;
 		})
@@ -283,4 +285,3 @@ function fetchDomHandles() {
 		}
 	};
 }
-

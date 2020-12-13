@@ -1,6 +1,8 @@
 const BADGE_COLORS = {
 	error: '#DD1616',
-	success: '#717171'
+	success: '#717171',
+	success1: 'black',
+	success2: '#006666',
 };
 let bgOpts;
 
@@ -72,7 +74,11 @@ function searchNonExact(tabId, url, retryCount = 0) {
 		return;
 	}
 	findOnReddit(url, true, false)
-		.then(posts => setResultsBadge(tabId, `${posts.length}`))
+		.then(posts => {
+		  // let badgeText = posts.length ? '#' + posts.length : posts.length;
+		  let badgeText = posts.length;
+		  setResultsBadge(tabId, `${badgeText}`)
+		})
 		.catch(e => {
 			if (bgOpts.autorun.retryError) {
 				setTimeout(() => searchNonExact(tabId, url, retryCount + 1), BG_RETRY_INTERVAL);
@@ -103,7 +109,7 @@ function setErrorBadge(tabId) {
 }
 
 function setResultsBadge(tabId, text) {
-	return setBadge(tabId, text, BADGE_COLORS.success);
+	return setBadge(tabId, text, BADGE_COLORS.success2);
 }
 
 function removeBadge(tabId) {
