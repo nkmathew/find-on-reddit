@@ -91,6 +91,7 @@ function render(userClicked = false) {
       return findOnReddit(urlToSearch, useCache, exactMatch);
     })
     .then((posts) => {
+      // posts = posts.filter(a => a.data.num_comments);
       posts = removeDuplicates(posts);
       state.lastResult.posts = posts;
       state.lastResult.url = originalUrl;

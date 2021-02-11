@@ -78,6 +78,7 @@ function searchNonExact(tabId, url, retryCount = 0) {
   findOnReddit(url, true, false)
     .then((posts) => {
       // let badgeText = posts.length ? '#' + posts.length : posts.length;
+      posts = posts.filter(a => a.data.num_comments);
       let badgeText = posts.length;
       setResultsBadge(tabId, `${badgeText}`);
     })
