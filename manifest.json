@@ -10,7 +10,7 @@
     "default_popup": "popup.html"
   },
   "sandbox": {
-     "pages": ["template.html"]
+    "pages": ["template.html"]
   },
   "permissions": [
     "activeTab",
@@ -20,15 +20,15 @@
     "<all_urls>"
   ],
   "background": {
-      "scripts": [
-        "js/jquery.min.js",
-        "chrome.js",
-        "url.js",
-        "reddit.js",
-        "query.js",
-        "background.js"
-      ],
-      "persistent": false
+    "scripts": [
+      "js/jquery.min.js",
+      "chrome.js",
+      "url.js",
+      "reddit.js",
+      "query.js",
+      "background.js"
+    ],
+    "persistent": false
   },
   "options_page": "options.html",
   "icons": {

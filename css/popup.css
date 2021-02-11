@@ -1,149 +1,125 @@
-body 
-{
+body {
   background-color: #ccc;
-  font-family: "Segoe UI", "Lucida Grande", Tahoma, sans-serif;
+  font-family: 'Segoe UI', 'Lucida Grande', Tahoma, sans-serif;
   width: 600px;
   font-size: 13px;
   min-height: 250px;
 }
 
-#main 
-{
+#main {
   max-width: 95%;
   padding: 20px;
 }
 
-.num-results-container
-{
+.num-results-container {
   padding-left: 5px;
 }
 
-.num-results
-{
+.num-results {
   padding: 3px 0 0 0;
 }
 
-.list-container
-{
+.list-container {
   padding: 10px 10px 10px 5px;
 }
 
-td 
-{
+td {
   padding: 10px;
   vertical-align: middle !important;
 }
 
 td.score,
-td.subreddit
-{
-	text-align: center;
+td.subreddit {
+  text-align: center;
 }
 
-.score
-{
+.score {
   font-size: 15px;
 }
 
-.night-mode
-{
-	background-color: #333;
-	color: white;
+.night-mode {
+  background-color: #333;
+  color: white;
 }
 
-.night-mode a
-{
+.night-mode a {
   color: #ddd;
   text-decoration: none;
 }
 
-.night-mode a:hover
-{
+.night-mode a:hover {
   color: white;
 }
 
-.night-mode a.pop:hover
-{
+.night-mode a.pop:hover {
   font-size: 1.1em;
 }
 
-.night-mode .post-details
-{
+.night-mode .post-details {
   color: #aaa;
 }
 
-.night-mode .form-control
-{
+.night-mode .form-control {
   background-color: #5c5c5c;
-	border: 1px solid #8c8c8c;
-	color: white;
-	font-size: 15px;
+  border: 1px solid #8c8c8c;
+  color: white;
+  font-size: 15px;
 }
 
-.night-mode .btn-default
-{
+.night-mode .btn-default {
   background-color: #363636;
   border: 1px solid #8c8c8c;
   border-left: none;
   color: #dfdfdf;
 }
 
-.night-mode .btn-default:hover
-{
+.night-mode .btn-default:hover {
   background-color: #2f2f2f;
   color: white;
 }
 
-.night-mode .btn-default:hover:active
-{
+.night-mode .btn-default:hover:active {
   background-color: #222;
   border: 1px solid #999;
   color: white;
 }
 
-.night-mode .btn-default:active
-{
+.night-mode .btn-default:active {
   background-color: #222;
   border: 1px solid #999;
   color: white;
 }
 
-.search-status
-{
+.search-status {
   text-align: center;
 }
 
-.night-mode .other-results
-{
+.night-mode .other-results {
   color: #ccc;
 }
 
-.night-mode select.sort-options
-{
+.night-mode select.sort-options {
   background-color: #333;
   border-radius: 2px;
   color: #ddd;
 }
 
 .night-mode option.sort-option:hover,
-.night-mode select.sort-options:hover
-{
+.night-mode select.sort-options:hover {
   background-color: #444;
 }
 
-.night-mode .sort-option
-{
+.night-mode .sort-option {
   color: #ccc;
 }
 
-.pre
-{
+.pre {
   white-space: pre;
 }
 
 .duplicates {
   border-radius: 100%;
-  background-color: #3F51B5;
+  background-color: #3f51b5;
   padding: 0px 3px 0px 3px;
   font-weight: bold;
 }
